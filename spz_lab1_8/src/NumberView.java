@@ -26,19 +26,17 @@
  *
  * @author vladkampov
  */
-public class Number {
-    private int value;
-    private final int[] steps = new int[3];
-    
-    public int getPoweredValue() {
-        return (int) Math.pow(this.value, 8);
-    }
-    
-    public int getValue() {
-        return value;
+public class NumberView {
+    // Text's constants
+    public static final String INPUT_INT_DATA = "Input Number (int) value: ";
+    public static final String WRONG_INPUT_INT_DATA = "Wrong input! Repeat please! ";
+    public static final String OUR_INT = "Number value is ";
+
+    public void printMessage(String message){
+        System.out.println(message);
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void printMessageAndInt(String message, int value){
+        System.out.println(message + value);
     }
 }

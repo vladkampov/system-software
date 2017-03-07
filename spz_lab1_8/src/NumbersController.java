@@ -22,23 +22,37 @@
  * THE SOFTWARE.
  */
 
+import java.util.Scanner;
+
 /**
  *
  * @author vladkampov
  */
-public class Number {
-    private int value;
-    private final int[] steps = new int[3];
+public class NumbersController {
+    // Constructor
+    Number model;
+    NumberView view;
     
-    public int getPoweredValue() {
-        return (int) Math.pow(this.value, 8);
+    public NumbersController(Number model, NumberView view) {
+        this.model  = model;
+        this.view = view;
     }
     
-    public int getValue() {
-        return value;
+    public void letUserGetThePower(){
+        Scanner sc = new Scanner(System.in);
+
+        model.setValue(inputIntValueWithScanner(sc));
+        model.addIntOurValue(4);
+
+        view.printMessageAndInt(view.OUR_INT, model.getValue());
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public int inputIntValueWithScanner(Scanner sc) {
+        view.printMessage(view.INPUT_INT_DATA);
+        while( ! sc.hasNextInt()) {
+            view.printMessage(view.WRONG_INPUT_INT_DATA + view.INPUT_INT_DATA);
+            sc.next();
+        }
+        return sc.nextInt();
     }
 }
