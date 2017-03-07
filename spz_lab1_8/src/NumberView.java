@@ -22,6 +22,8 @@
  * THE SOFTWARE.
  */
 
+import java.util.List;
+
 /**
  *
  * @author vladkampov
@@ -29,8 +31,11 @@
 public class NumberView {
     // Text's constants
     public static final String INPUT_INT_DATA = "Input Number (int) value: ";
+    public static final String INPUT_POWER_DATA = "Input Power (int) value: ";
     public static final String WRONG_INPUT_INT_DATA = "Wrong input! Repeat please! ";
-    public static final String OUR_INT = "Number value is ";
+    public static final String SETTED_INT = "Number value is ";
+    public static final String SETTED_POWER = "Power value is ";
+    public static final String STEPS = "Steps to get powered value: ";
 
     public void printMessage(String message){
         System.out.println(message);
@@ -38,5 +43,12 @@ public class NumberView {
 
     public void printMessageAndInt(String message, int value){
         System.out.println(message + value);
+    }
+    
+    public void printMessageAndSteps(String message, List steps) {
+        System.out.println(message);
+        for (int i = 0; i < steps.size(); i++) {
+            System.out.println("Step " + (i + 1) +  ":" + steps.get(i));
+        }
     }
 }

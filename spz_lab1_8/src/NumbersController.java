@@ -41,18 +41,23 @@ public class NumbersController {
     public void letUserGetThePower(){
         Scanner sc = new Scanner(System.in);
 
-        model.setValue(inputIntValueWithScanner(sc));
-        model.addIntOurValue(4);
-
-        view.printMessageAndInt(view.OUR_INT, model.getValue());
+        model.setValue(inputIntValueWithScanner(sc, view.INPUT_INT_DATA));
+        view.printMessageAndInt(view.SETTED_INT, model.getValue());
+        
+        int powered = model.getPoweredValue(inputIntValueWithScanner(sc, view.INPUT_POWER_DATA));
+        view.printMessageAndInt(view.SETTED_POWER, powered);
+        
+        view.printMessageAndSteps(view.STEPS, model.getSteps());
     }
 
-    public int inputIntValueWithScanner(Scanner sc) {
-        view.printMessage(view.INPUT_INT_DATA);
+    public int inputIntValueWithScanner(Scanner sc, String text_variable) {
+        view.printMessage(text_variable);
+        
         while( ! sc.hasNextInt()) {
-            view.printMessage(view.WRONG_INPUT_INT_DATA + view.INPUT_INT_DATA);
+            view.printMessage(view.WRONG_INPUT_INT_DATA + text_variable);
             sc.next();
         }
+        
         return sc.nextInt();
     }
 }

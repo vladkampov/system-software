@@ -22,16 +22,39 @@
  * THE SOFTWARE.
  */
 
+import java.util.List;
+import java.util.ArrayList;
+
 /**
  *
  * @author vladkampov
  */
 public class Number {
     private int value;
-    private final int[] steps = new int[3];
+    private List<Integer> steps = new ArrayList();
     
-    public int getPoweredValue() {
-        return (int) Math.pow(this.value, 8);
+    Number(int value) {
+        this.value = value;
+    }
+
+    Number() {
+        
+    }
+
+    public int getPoweredValue(int power) {
+        int tmp = this.value;
+        int max_steps = (int) (power - 1) / 2;
+        
+        for (int i = 0; i < max_steps; i++) {
+            tmp *= tmp;
+            this.steps.add(tmp);
+        }
+        
+        return tmp;
+    }
+    
+    public List<Integer> getSteps() {
+        return this.steps;
     }
     
     public int getValue() {
