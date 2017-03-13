@@ -38,12 +38,11 @@ public class Number {
     }
 
     Number() {
-        
+        this.value = 2;
     }
 
-    public int getPoweredValue(int power) {
+    public int getPoweredValue(int power, int max_steps) {
         int tmp = this.value;
-        int max_steps = (int) (power - 1) / 2;
         
         for (int i = 0; i < max_steps; i++) {
             tmp *= tmp;

@@ -38,13 +38,13 @@ public class NumbersController {
         this.view = view;
     }
     
-    public void letUserGetThePower(){
+    public void letUserGetThePower(int power, int max_steps){
         Scanner sc = new Scanner(System.in);
 
         model.setValue(inputIntValueWithScanner(sc, view.INPUT_INT_DATA));
         view.printMessageAndInt(view.SETTED_INT, model.getValue());
         
-        int powered = model.getPoweredValue(inputIntValueWithScanner(sc, view.INPUT_POWER_DATA));
+        int powered = model.getPoweredValue(power, max_steps);
         view.printMessageAndInt(view.SETTED_POWER, powered);
         
         view.printMessageAndSteps(view.STEPS, model.getSteps());

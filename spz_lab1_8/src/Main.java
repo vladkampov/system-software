@@ -27,7 +27,8 @@
  * @author vladkampov
  */
 public class Main {
-
+    public static int power = 8;
+    public static int max_steps = 3;
     /**
      * @param args the command line arguments
      */
@@ -36,6 +37,6 @@ public class Main {
         NumberView view = new NumberView();
         NumbersController controller = new NumbersController(num, view);
         
-        controller.letUserGetThePower();
+        controller.letUserGetThePower(power, max_steps);
     }
 }
