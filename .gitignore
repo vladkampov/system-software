@@ -5,3 +5,5 @@ dist/
 nbdist/
 .nb-gradle/
 
+/spz_lab2_8/nbproject/private/
+/spz_lab3_8/nbproject/private/
